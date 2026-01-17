@@ -1,0 +1,45 @@
+{
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player"
+    },
+    "component_groups": {
+      "vampire:sun_burn": {
+        "minecraft:is_ignited": {}
+      },
+      "vampire:powers": {
+        "minecraft:movement": { "value": 0.2 },
+        "minecraft:attack": { "damage": 8 }
+      }
+    },
+    "components": {
+      "minecraft:type_family": { "family": [ "player", "undead" ] },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_daytime", "value": true },
+                { "test": "is_underwater", "value": false },
+                { "test": "has_component", "value": "minecraft:can_see_sky" }
+              ]
+            },
+            "event": "event:vampire_burn"
+          },
+          {
+            "filters": { "test": "is_daytime", "value": false },
+            "event": "event:vampire_power_up"
+          }
+        ]
+      }
+    },
+    "events": {
+      "event:vampire_burn": { "add": { "component_groups": [ "vampire:sun_burn" ] } },
+      "event:vampire_power_up": { 
+        "add": { "component_groups": [ "vampire:powers" ] },
+        "remove": { "component_groups": [ "vampire:sun_burn" ] }
+      }
+    }
+  }
+}
