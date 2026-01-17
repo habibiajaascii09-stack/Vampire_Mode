@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Vampire Mode: Professional Edition",
+    "description": "Supernatural strength with a deadly solar weakness. PDOSL Licensed.",
+    "uuid": "k8l9m0n1-o2p3-4q5r-6s7t-8u9v0w1x2y3z",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 20, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "f7a8b9c0-d1e2-2f3a-4b5c-6d7e8f9a0b1c",
+      "version": [1, 0, 0]
+    }
+  ]
+}
